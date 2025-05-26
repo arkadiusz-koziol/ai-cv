@@ -23,9 +23,10 @@ def build_requirements_prompt(position: str, skills: list[str]) -> str:
     skills_formatted = ", ".join(skills)
     return (
         f"Rekrutuję na stanowisko: {position}.\n"
-        f"Poszukuję kandydatów z następującymi umiejętnościami: {skills_formatted}.\n"
-        f"Na podstawie tego opisu, będę Ci przesyłać CV. Twoim zadaniem będzie ocenić, czy kandydat pasuje.\n"
-        f"Zadaj mi jedno pytanie, które pomogłoby Ci jeszcze lepiej zrozumieć moje potrzeby rekrutacyjne."
+        f"Poszukuję kandydatów posiadających następujące umiejętności: {skills_formatted}.\n"
+        f"Na podstawie tego opisu będę przesyłać Ci CV kandydatów.\n"
+        f"Twoim zadaniem będzie ocenić, czy dany kandydat spełnia wymagania i pasuje na to stanowisko.\n"
+        f"Aby jeszcze lepiej zrozumieć moje potrzeby rekrutacyjne, zadaj mi jedno pytanie uzupełniające."
     )
 
 
