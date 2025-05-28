@@ -1,6 +1,5 @@
 # AI-CV Filter – System wspomagania rekrutacji
 
-Projekt zespołowy – Arkadiusz Kozioł i [Imię drugiej osoby]  
 System informatyczny wspierający preselekcję CV przy użyciu lokalnego modelu AI.
 
 ---
