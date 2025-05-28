@@ -1,9 +1,9 @@
 {
-  "position": "Frontend Developer",
+  "position": "Backend Developer",
   "skills": [
-    "React",
-    "javascript",
-    "html",
-    "css"
+    "PHP",
+    "Laravel",
+    "PostgreSQL",
+    "Docker"
   ]
 }
