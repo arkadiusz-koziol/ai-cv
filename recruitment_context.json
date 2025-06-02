@@ -1,9 +1,8 @@
 {
   "position": "Backend Developer",
   "skills": [
-    "PHP",
-    "Laravel",
-    "PostgreSQL",
-    "Docker"
+    "PHP (wymagana)",
+    "Laravel (wymagana)",
+    "PostgreSQL (mile widziana)"
   ]
 }

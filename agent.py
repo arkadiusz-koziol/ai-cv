@@ -25,7 +25,8 @@ def build_requirements_prompt(position: str, skills: list[str]) -> str:
         f"Rekrutuję na stanowisko: {position}.\n"
         f"Poszukuję kandydatów posiadających następujące umiejętności: {skills_formatted}.\n"
         f"Na podstawie tego opisu będę przesyłać Ci CV kandydatów.\n"
-        f"Twoim zadaniem będzie ocenić, czy dany kandydat spełnia wymagania i pasuje na to stanowisko.\n"
+        f"Twoim zadaniem będzie ocenić, czy dany kandydat ma wymagane umiejętności, jest poniej lub powyzej oczekiwan i pasuje na to stanowisko.\n"
+        f"Jezeli jakichs umiejetnosci, ktorych poszukuje brakuje w CV, wymien je.\n"
         f"Aby jeszcze lepiej zrozumieć moje potrzeby rekrutacyjne, zadaj mi jedno pytanie uzupełniające."
     )
 

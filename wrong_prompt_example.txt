@@ -1,26 +1,6 @@
-from agent import ask_ollama, load_context
-from parser import parse_pdf_cv
-
-
-def validate_required_skills(cv_text: str, skills: list[str]) -> list[str]:
-    """
-    Sprawdza, które wymagane umiejętności (oznaczone jako ' (wymagana)') nie występują dosłownie w CV.
-    """
-    lower_cv = cv_text.lower()
-    missing = []
-
-    for skill in skills:
-        if "(wymagana)" not in skill:
-            continue
-        skill_name = skill.replace(" (wymagana)", "").strip().lower()
-        if skill_name not in lower_cv:
-            missing.append(skill_name)
-
-    return missing
-
-
 def build_cv_evaluation_prompt(context: dict, cv_text: str) -> str:
     position = context["position"]
+
     required_skills = [s for s in context["skills"] if "(wymagana)" in s]
     optional_skills = [s for s in context["skills"] if "(mile widziana)" in s]
 
@@ -46,24 +26,3 @@ def build_cv_evaluation_prompt(context: dict, cv_text: str) -> str:
         f"6. Wymień słabe strony (jeśli są)\n"
         f"7. Zaproponuj pytanie na rozmowę kwalifikacyjną"
     )
-
-
-
-if __name__ == "__main__":
-    path = input("Podaj ścieżkę do pliku CV (PDF): ").strip()
-    context = load_context()
-    cv_text = parse_pdf_cv(path)
-
-    missing_required = validate_required_skills(cv_text, context["skills"])
-    if missing_required:
-        prompt = (
-            f"🛑 Uwaga: Wykryto brakujące wymagane umiejętności: {', '.join(missing_required)}.\n"
-            f"Twoja odpowiedź musi brzmieć ❌ NIE. Nie masz prawa interpretować braków jako obecnych.\n\n"
-        ) + build_cv_evaluation_prompt(context, cv_text)
-    else:
-        prompt = build_cv_evaluation_prompt(context, cv_text)
-
-    print("\n⏳ Analiza CV trwa...\n")
-    response = ask_ollama(prompt)
-    print("🧠 Odpowiedź modelu:\n")
-    print(response)
