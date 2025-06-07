@@ -1,7 +1,6 @@
 from agent import ask_ollama, load_context
 from parser import parse_pdf_cv
 
-
 def validate_required_skills(cv_text: str, skills: list[str]) -> list[str]:
     """
     Sprawdza, które wymagane umiejętności (oznaczone jako ' (wymagana)') nie występują dosłownie w CV.
@@ -17,7 +16,6 @@ def validate_required_skills(cv_text: str, skills: list[str]) -> list[str]:
             missing.append(skill_name)
 
     return missing
-
 
 def build_cv_evaluation_prompt(context: dict, cv_text: str) -> str:
     position = context["position"]
@@ -46,8 +44,6 @@ def build_cv_evaluation_prompt(context: dict, cv_text: str) -> str:
         f"6. Wymień słabe strony (jeśli są)\n"
         f"7. Zaproponuj pytanie na rozmowę kwalifikacyjną"
     )
-
-
 
 if __name__ == "__main__":
     path = input("Podaj ścieżkę do pliku CV (PDF): ").strip()

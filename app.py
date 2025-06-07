@@ -4,10 +4,8 @@ from parser import parse_pdf_cv
 from evaluate_cv import build_cv_evaluation_prompt, validate_required_skills
 import tempfile
 
-
 st.set_page_config(page_title="AI Rekruter", layout="centered")
 st.title("🤖 AI Rekruter – analiza CV")
-
 
 # Sekcja 1: Wymagania rekrutacyjne
 with st.expander("📋 Ustaw wymagania"):
@@ -19,7 +17,6 @@ with st.expander("📋 Ustaw wymagania"):
         skill_list = [s.strip() for s in skills.split(",")]
         save_context(position, skill_list)
         st.success("✅ Zapisano wymagania!")
-
 
 # Sekcja 2: Wysyłanie CV
 st.subheader("📄 Prześlij CV (PDF)")

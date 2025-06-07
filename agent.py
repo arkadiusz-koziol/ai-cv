@@ -4,7 +4,6 @@ from pathlib import Path
 
 CONTEXT_PATH = Path("recruitment_context.json")
 
-
 def ask_ollama(prompt: str, model: str = "mistral") -> str:
     result = subprocess.run(
         ["ollama", "run", model],
@@ -18,7 +17,6 @@ def ask_ollama(prompt: str, model: str = "mistral") -> str:
 
     return result.stdout.decode().strip()
 
-
 def build_requirements_prompt(position: str, skills: list[str]) -> str:
     skills_formatted = ", ".join(skills)
     return (
@@ -29,7 +27,6 @@ def build_requirements_prompt(position: str, skills: list[str]) -> str:
         f"Jezeli jakichs umiejetnosci, ktorych poszukuje brakuje w CV, wymien je.\n"
         f"Aby jeszcze lepiej zrozumieć moje potrzeby rekrutacyjne, zadaj mi jedno pytanie uzupełniające."
     )
-
 
 def save_context(position: str, skills: list[str]) -> None:
     CONTEXT_PATH.write_text(json.dumps({
@@ -43,7 +40,6 @@ def load_context() -> dict:
         return json.loads(CONTEXT_PATH.read_text())
     else:
         raise FileNotFoundError("Brak zapisanego kontekstu rekrutacji.")
-
 
 if __name__ == "__main__":
     stanowisko = input("Na jakie stanowisko rekrutujesz? ")

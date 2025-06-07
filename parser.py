@@ -1,7 +1,6 @@
 import pdfplumber
 from pathlib import Path
 
-
 def parse_pdf_cv(file_path: str) -> str:
     """
     Parsuje plik PDF z CV i zwraca czysty tekst.
@@ -16,7 +15,6 @@ def parse_pdf_cv(file_path: str) -> str:
             text += page.extract_text() + "\n"
 
     return text.strip()
-
 
 if __name__ == "__main__":
     path = input("Podaj ścieżkę do pliku CV (PDF): ").strip()
