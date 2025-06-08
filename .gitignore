@@ -1,3 +1,4 @@
 .qodo
 __pycache__/
 venv/
+recruitment_context.json

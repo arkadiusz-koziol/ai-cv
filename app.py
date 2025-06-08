@@ -9,9 +9,16 @@ st.title("🤖 AI Rekruter – analiza CV")
 
 # Sekcja 1: Wymagania rekrutacyjne
 with st.expander("📋 Ustaw wymagania"):
-    position = st.text_input("Stanowisko", value="Backend Developer")
-    skills = st.text_input("Umiejętności (oddziel przecinkami, dodaj '(wymagana)' lub '(mile widziana)')",
-                           value="PHP (wymagana), Laravel (wymagana), PostgreSQL (mile widziana), Excel (wymagana), analiza statyczna (wymagana), biznes (wymagana)")
+    try:
+        context = load_context()
+        default_position = context["position"]
+        default_skills = ", ".join(context["skills"])
+    except:
+        default_position = "Backend Developer"
+        default_skills = "PHP (wymagana), Laravel (wymagana), PostgreSQL (mile widziana), Excel (wymagana), analiza statyczna (wymagana), biznes (wymagana)"
+
+    position = st.text_input("Stanowisko", value=default_position)
+    skills = st.text_input("Umiejętności (...)", value=default_skills)
 
     if st.button("Zapisz wymagania"):
         skill_list = [s.strip() for s in skills.split(",")]
