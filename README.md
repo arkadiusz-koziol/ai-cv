@@ -102,6 +102,6 @@ streamlit run app.py
 ## 👨‍💻 Autorzy
 
 - Arkadiusz Kozioł
-- [Imię drugiej osoby]
+- Patrycja Królikowska
 
 Projekt realizowany w ramach przedmiotu *Systemy informatyczne zarządzania*.
